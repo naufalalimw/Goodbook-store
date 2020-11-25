@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:goodbookstore/consttants.dart';
+import 'package:goodbookstore/widgets/reading_card_list.dart';
 import 'package:goodbookstore/widgets/rounded_button.dart';
 import 'package:goodbookstore/screen/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -43,12 +44,14 @@ class WelcomeScreen extends StatelessWidget {
           children: <Widget>[
             RichText(
               text: TextSpan(
-                style: Theme.of(context).textTheme.display3,
+                style: Theme.of(context).textTheme.headline2,
                 children: [
                   TextSpan(
                     text: "Good",
                     style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.yellow[800]),
+                      fontWeight: FontWeight.bold,
+                      color: Colors.yellow[800],
+                    ),
                   ),
                   TextSpan(
                     text: "Book",
@@ -57,10 +60,23 @@ class WelcomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+            RichText(
+              text: TextSpan(
+                  style: Theme.of(context).textTheme.headline3,
+                  children: [
+                    TextSpan(
+                      text: "store",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ]),
+            ),
             SizedBox(
               width: MediaQuery.of(context).size.width * .6,
               child: RoundedButton(
-                text: "Store",
+                text: "Get Started",
                 fontSize: 20,
                 press: () {
                   Navigator.push(
