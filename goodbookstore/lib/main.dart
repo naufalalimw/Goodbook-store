@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:goodbookstore/consttants.dart';
-import 'package:goodbookstore/widgets/reading_card_list.dart';
 import 'package:goodbookstore/widgets/rounded_button.dart';
 import 'package:goodbookstore/screen/home_screen.dart';
-import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());

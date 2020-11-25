@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-final SnackBar snackBar = const SnackBar(content: Text('Showing Snackbar'));
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -15,8 +14,10 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.search),
             onPressed: () {
-              delegate:
-              CustomSearchDelegate();
+              showSearch(
+                context: context,
+                delegate: CustomSearchDelegate(),
+              );
             },
           ),
         ],
@@ -56,22 +57,23 @@ class CustomSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    if (query.length < 3) {
-      return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Center(
-            child: Text(
-              "Search term must be longer than two letters.",
-            ),
-          )
-        ],
-      );
-    }
+    // if (query.length < 3) {
+    //   return Column(
+    //     mainAxisAlignment: MainAxisAlignment.center,
+    //     children: <Widget>[
+    //       Center(
+    //         child: Text(
+    //           "Search term must be longer than two letters.",
+    //         ),
+    //       )
+    //     ],
+    //   );
+    // }
 
     //Add the search term to the searchBloc.
     //The Bloc will then handle the searching and add the results to the searchResults stream.
     //This is the equivalent of submitting the search term to whatever search service you are using
+    return Container();
   }
 
   @override
