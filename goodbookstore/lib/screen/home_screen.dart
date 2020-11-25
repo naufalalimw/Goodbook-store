@@ -1,10 +1,3 @@
-import 'dart:html';
-
-import 'package:goodbookstore/consttants.dart';
-import 'package:goodbookstore/screen/details_screen.dart';
-import 'package:goodbookstore/widgets/book_rating.dart';
-import 'package:goodbookstore/widgets/reading_card_list.dart';
-import 'package:goodbookstore/widgets/two_side_rounded_button.dart';
 import 'package:flutter/material.dart';
 
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -79,46 +72,6 @@ class CustomSearchDelegate extends SearchDelegate {
     //Add the search term to the searchBloc.
     //The Bloc will then handle the searching and add the results to the searchResults stream.
     //This is the equivalent of submitting the search term to whatever search service you are using
-    InheritedBlocs.of(context).searchBloc.searchTerm.add(query);
-
-    return Column(
-      children: <Widget>[
-        //Build the results based on the searchResults stream in the searchBloc
-        StreamBuilder(
-          stream: InheritedBlocs.of(context).searchBloc.searchResults,
-          builder: (context, AsyncSnapshot<List<Result>> snapshot) {
-            if (!snapshot.hasData) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Center(child: CircularProgressIndicator()),
-                ],
-              );
-            } else if (snapshot.data.length == 0) {
-              return Column(
-                children: <Widget>[
-                  Text(
-                    "No Results Found.",
-                  ),
-                ],
-              );
-            } else {
-              var results = snapshot.data;
-              return ListView.builder(
-                itemCount: results.length,
-                itemBuilder: (context, index) {
-                  var result = results[index];
-                  return ListTile(
-                    title: Text(result.title),
-                  );
-                },
-              );
-            }
-          },
-        ),
-      ],
-    );
   }
 
   @override
